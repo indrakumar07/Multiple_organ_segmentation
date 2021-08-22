@@ -16,11 +16,11 @@ def disp_png_jpg(img,dataset):
     test_img = np.expand_dims(test_img, axis=0)
     cols = st.columns(2)
     cols[0].image(test_img,caption="Input Image",width=256)
-    x=cols[1].image('../Images/load.gif')
+    x=cols[1].image('Images/load.gif')
     pre,y=brain.predict(test_img,dataset)
     if y==0:
         x.empty()
-        cols[1].image('../Images/notumor.gif')
+        cols[1].image('Images/notumor.gif')
     else:
         x.empty()
         cols[1].image(pre,caption="Segmented Mask",width=256)
@@ -33,20 +33,20 @@ def get_binary_file_downloader_html(bin_file, file_label='File'):
     
 
 def disp_nii(img,store): 
-    place=st.image('../Images/processing.gif')
+    place=st.image('Images/processing.gif')
     x=brain.predict_nii(img,place)    
     if x==0:
         st.write("Exception occured :FileNotFound")
         place.empty()
-        place.image('../Images/error.gif')
+        place.image('Images/error.gif')
         
     else:
         try:
             nib.save(x, store+'/segmented_mask.nii')
             place.empty()
-            place.image('../Images/completed.gif')
+            place.image('Images/completed.gif')
         except:
             place.empty()
-            place.image('../Images/error.gif')
+            place.image('Images/error.gif')
 
     

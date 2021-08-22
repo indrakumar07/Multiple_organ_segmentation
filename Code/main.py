@@ -3,7 +3,7 @@ import display
 
 
 
-st.image('../Images/head.gif')
+st.image('Images/head.gif')
 dataset=st.selectbox(' Select Data Class:',("LUNG","LIVER","RETINA","BRAIN"))
 
 st.sidebar.markdown("<h1 style='text-align: left; color: green;'>SRI RAMAKRISHNA ENGINEERING COLLEGE,<br> COIMBATORE</h1>", 

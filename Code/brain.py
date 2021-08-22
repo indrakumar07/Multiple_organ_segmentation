@@ -9,10 +9,10 @@ from tensorflow.python.keras.models import load_model
 import cv2
 
 
-lung_model=load_model('../Models/lung_model.h5',compile=False)
-brain_model=load_model('../Models/brain_bce.h5',compile=False)
-retina_model=load_model('../Models/retina.h5',compile=False)
-liver_model=load_model('../Models/liver.h5',compile=False)
+lung_model=load_model('Models/lung_model.h5',compile=False)
+brain_model=load_model('Models/brain_bce.h5',compile=False)
+retina_model=load_model('Models/retina.h5',compile=False)
+liver_model=load_model('Models/liver.h5',compile=False)
 
 def predict(img,clas):
     y=1
@@ -117,7 +117,7 @@ def predict_nii(img,place):
     pred = remove_small_holes(pred.astype(bool), area_threshold=0.001*np.prod(pred.shape)).astype(np.float32)
 
     place.empty()
-    place.image('../Images/saving.gif')
+    place.image('Images/saving.gif')
     pred = pred.astype(np.uint8)
     img = nib.Nifti1Image(pred, affine=resampled_volume.affine)
     resampled_lab = resample_from_to(img, nib_volume, order=0)
