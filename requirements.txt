@@ -1,8 +1,6 @@
 streamlit
 numpy
 opencv-python
-os
-base64
 nibabel
 tqdm
 skimage
