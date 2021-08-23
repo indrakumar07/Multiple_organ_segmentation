@@ -3,6 +3,6 @@ numpy
 opencv-python
 nibabel
 tqdm
-skimage
+scikit-image
 scipy
 tensorflow
