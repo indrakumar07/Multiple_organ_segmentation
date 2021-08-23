@@ -1,6 +1,7 @@
 streamlit
 numpy
 opencv-python
+opencv-contrib-python
 nibabel
 tqdm
 scikit-image
