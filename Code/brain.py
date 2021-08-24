@@ -7,20 +7,23 @@ from skimage.measure import label, regionprops
 from scipy.ndimage import zoom
 from tensorflow.python.keras.models import load_model
 import cv2
+import grand
 
 
 lung_model=load_model('Models/lung_model.h5',compile=False)
-brain_model=load_model('Models/brain_bce.h5',compile=False)
+brain_model=load_model('Models/brain_final.h5',compile=False)
 retina_model=load_model('Models/retina.h5',compile=False)
 liver_model=load_model('Models/liver.h5',compile=False)
 
-def predict(img,clas):
+def predict(img,clas,himg):
     y=1
     if(clas=="LUNG"):
-       prediction = lung_model.predict(img)
-       prediction_image = prediction.reshape((256,256))
+        himg=grand.hmap(lung_model,himg)
+        prediction = lung_model.predict(img)
+        prediction_image = prediction.reshape((256,256))
         
     elif(clas=="BRAIN"):
+        himg=grand.hmap(brain_model,himg)
         prediction = brain_model.predict(img)
         prediction_image = prediction.reshape((256,256))
         x=(prediction_image*255).astype(np.uint8)
@@ -30,10 +33,11 @@ def predict(img,clas):
             y=0
         
     elif(clas=="RETINA"):
+        himg=grand.hmap(retina_model,himg)
         prediction = retina_model.predict(img)
         prediction_image = prediction.reshape((256,256))
                 
-    return prediction_image,y
+    return prediction_image,y,himg
 
 
 def intensity_normalization(volume, intensity_clipping_range):
@@ -53,14 +57,17 @@ def intensity_normalization(volume, intensity_clipping_range):
 def predict_nii(img,place):
     try:
         nib_volume = nib.load(img)
+        print(type(nib_volume))
     except FileNotFoundError:
         return 0
     
     new_spacing = [1., 1., 1.]
     resampled_volume = resample_to_output(nib_volume, new_spacing, order=1)
+    print(type(resampled_volume))
     data = resampled_volume.get_data().astype('float32')
-
+    print(type(data))
     curr_shape = data.shape
+    print(curr_shape)
 
     # resize to get (512, 512) output images
     img_size = 512
