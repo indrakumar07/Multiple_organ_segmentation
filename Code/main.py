@@ -1,5 +1,7 @@
 import streamlit as st
 import display
+
+import os
 def file_selector(folder_path='Downloads/'):
     filenames = os.listdir(folder_path)
     selected_filename = st.selectbox('Select a file', filenames)
