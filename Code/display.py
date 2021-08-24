@@ -24,8 +24,8 @@ def disp_png_jpg(img,dataset):
         cols[1].image('Images/notumor.gif')
     else:
         x.empty()
-        cols[1].image(pre,caption="Segmented Mask",width=256)
         st.image(himg,caption="Heatmap Image",use_column_width=True)
+        cols[1].image(pre,caption="Segmented Mask",width=256)        
        
         
 def get_binary_file_downloader_html(bin_file, file_label='File'):
