@@ -11,7 +11,7 @@ import grand
 
 
 lung_model=load_model('Models/lung_model.h5',compile=False)
-brain_model=load_model('Models/brain_final.h5',compile=False)
+brain_model=load_model('Models/brain_bce.h5',compile=False)
 retina_model=load_model('Models/retina.h5',compile=False)
 liver_model=load_model('Models/liver.h5',compile=False)
 
