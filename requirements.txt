@@ -5,5 +5,5 @@ nibabel
 tqdm
 scikit-image
 scipy
-tensorflow
+tensorflow==2.3.0
 matplotlib
