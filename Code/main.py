@@ -4,21 +4,21 @@ import display
 st.image('Images/head.gif')
 dataset=st.selectbox(' Select Data Class:',("LUNG","LIVER","RETINA","BRAIN"))
 
-st.sidebar.markdown("<h1 style='text-align: left; color: green;'>SRI RAMAKRISHNA ENGINEERING COLLEGE,<br> COIMBATORE</h1>", 
-                unsafe_allow_html=True)
-st.sidebar.markdown("<h1 style='text-align: left;'>TEAM EXTREMIST:</h1>", 
-                unsafe_allow_html=True)
-st.sidebar.markdown('''
-                    <ol>
-                      <li>INDRA KUMAR K</li>
-                      <li>HARI KRISHNA M</li>
-                      <li>SREE HARAN A</li>
-                      <li>RISHIBALAJI RAJASEKAR</li>
-                      <li>AISHWARYA LAXMI G</li>
-                      <li>SUBASINI R</li>
-                      <li>ARIVALAN C P</li>
-                    </ol> ''',
-                unsafe_allow_html=True)
+# st.sidebar.markdown("<h1 style='text-align: left; color: green;'>SRI RAMAKRISHNA ENGINEERING COLLEGE,<br> COIMBATORE</h1>", 
+#                 unsafe_allow_html=True)
+# st.sidebar.markdown("<h1 style='text-align: left;'>TEAM EXTREMIST:</h1>", 
+#                 unsafe_allow_html=True)
+# st.sidebar.markdown('''
+#                     <ol>
+#                       <li>INDRA KUMAR K</li>
+#                       <li>HARI KRISHNA M</li>
+#                       <li>SREE HARAN A</li>
+#                       <li>RISHIBALAJI RAJASEKAR</li>
+#                       <li>AISHWARYA LAXMI G</li>
+#                       <li>SUBASINI R</li>
+#                       <li>ARIVALAN C P</li>
+#                     </ol> ''',
+#                 unsafe_allow_html=True)
 
 if dataset=='LUNG':
     st.markdown("<h1 style='text-align: left; color: green;'>"+dataset+"</h1>", 
